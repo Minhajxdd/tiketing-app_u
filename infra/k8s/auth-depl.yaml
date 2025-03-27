@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: minhajxdd/auth
+          image: minhajxdd/auth:0.0.1
 ---
 apiVersion: v1
 kind: Service
