@@ -12,14 +12,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log(req.method,' ',req.url);
+  console.log(req.method, " ", req.url);
   next();
-})
+});
 
 app.use(currentUserRouter);
 app.use(singinRouter);
 app.use(signupRouter);
 app.use(signoutRouter);
+
+app.use(errorHandler);
 
 app.listen(3000, () => {
   console.log(`Server start at port 3000`);
