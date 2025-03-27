@@ -7,6 +7,7 @@ import { singinRouter } from "./routes/signin";
 import { signupRouter } from "./routes/signup";
 import { signoutRouter } from "./routes/signout";
 import { errorHandler } from "./middlewares/error-handler";
+import { NotFoundError } from "./errors/not-found-error";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +21,10 @@ app.use(currentUserRouter);
 app.use(singinRouter);
 app.use(signupRouter);
 app.use(signoutRouter);
+
+app.all("*", () => {
+  throw new NotFoundError();
+});
 
 app.use(errorHandler);
 
