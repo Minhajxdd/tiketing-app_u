@@ -5,6 +5,7 @@ deploy:
     manifests:
       - infra/k8s/auth-depl.yaml
       - infra/k8s/ingress-srv.yaml
+      - infra/k8s/auth-mongo-depl.yaml
 
 build:
   local:
