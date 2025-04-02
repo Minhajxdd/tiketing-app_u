@@ -1,8 +1,10 @@
 import express, { NextFunction, Request, Response } from "express";
-import 'express-async-errors';
-import mongoose, { mongo } from 'mongoose'
+import "express-async-errors";
+import mongoose, { mongo } from "mongoose";
+import cookieSession from "cookie-session";
 
 const app = express();
+app.set('trust proxy', true);
 
 import { currentUserRouter } from "./routes/current-user";
 import { singinRouter } from "./routes/signin";
@@ -13,6 +15,12 @@ import { NotFoundError } from "./errors/not-found-error";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  cookieSession({
+    signed: false,
+    secure: true
+  })
+);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(req.method, " ", req.url);
@@ -30,17 +38,21 @@ app.all("*", () => {
 
 app.use(errorHandler);
 
-const start = async() => {
+const start = async () => {
+  if(!process.env.JWT_KEY) {
+    throw new Error("JWT_KEY must be defined");
+  }
+
   try {
     await mongoose.connect(`mongodb://auth-mongo-srv:27017/auth`);
     console.log(`Connected to mongodb`);
-  } catch(err) {
+  } catch (err) {
     console.error(err);
   }
 
   app.listen(3000, () => {
     console.log(`Server start at port 3000`);
   });
-}
+};
 
 start();
