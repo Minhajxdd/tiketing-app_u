@@ -4,18 +4,21 @@ import { app } from '../app';
 
 let mongo: any;
 beforeAll(async () => {
-    mongo = new MongoMemoryServer();
-    const mongoUri = await mongo.getUri();
+
+    process.env.JWT_KEY = 'secret';
+
+    mongo = await MongoMemoryServer.create();
+    const mongoUri = mongo.getUri();
 
     await mongoose.connect(mongoUri);
 });
 
 
 beforeEach(async () => {
-    const collections = await mongoose.connection.db?.collections();
+    const collections = await mongoose.connection.db?.collections() || [];
 
-    for(let collection of collections || []) {
-        await collection. deleteMany({ });
+    for(let collection of collections) {
+        await collection. deleteMany({});
     }
 });
 
