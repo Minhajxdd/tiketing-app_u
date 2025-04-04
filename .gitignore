@@ -40,3 +40,6 @@ Thumbs.db
 # Docker
 docker-compose.override.yml
 docker-compose.override.yaml
+
+#next
+.next
