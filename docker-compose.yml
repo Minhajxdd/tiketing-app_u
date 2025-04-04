@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
+    container_name: ticketing-auth-service-container
+    environment:
+      - JWT_KEY=jwt-secret
+    ports:
+      - '8001:8001'
+    depends_on:
+      - mongodb
+    restart: always
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-container
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodb_data:/data/db
+    restart: always
+
+volumes:
+  mongodb_data:
+    driver: local

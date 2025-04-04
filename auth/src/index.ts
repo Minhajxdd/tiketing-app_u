@@ -8,13 +8,13 @@ const start = async () => {
   }
 
   try {
-    await mongoose.connect(`mongodb://auth-mongo-srv:27017/auth`);
+    await mongoose.connect(`mongodb://mongodb:27017/auth-db`);
     console.log(`Connected to mongodb`);
   } catch (err) {
     console.error(err);
   }
 
-  app.listen(3000, () => {
+  app.listen(8001, () => {
     console.log(`Server start at port 3000`);
   });
 };
