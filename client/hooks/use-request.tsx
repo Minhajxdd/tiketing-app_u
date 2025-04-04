@@ -7,6 +7,7 @@ export default ({ url, method, body }: UserRequestType) => {
 
   const doRequest = async () => {
     try {
+      setErrors(null);
       const respose = await axios[method](url, body);
       return respose.data;
     } catch (err: any) {
