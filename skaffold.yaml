@@ -6,6 +6,7 @@ deploy:
       - infra/k8s/auth-depl.yaml
       - infra/k8s/ingress-srv.yaml
       - infra/k8s/auth-mongo-depl.yaml
+      - infra/k8s/client-depl.yaml
 
 build:
   local:
@@ -18,4 +19,12 @@ build:
       sync:
         manual:
           - src: 'src/**/*.ts'
+            dest: .
+    - image: minhajxdd/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
             dest: .
