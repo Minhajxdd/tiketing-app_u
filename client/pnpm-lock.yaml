@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      bootstrap:
+        specifier: ^5.3.4
+        version: 5.3.4(@popperjs/core@2.11.8)
       next:
         specifier: '13'
         version: 13.5.11(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -77,8 +80,16 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@popperjs/core@2.11.8':
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+
   '@swc/helpers@0.5.2':
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
+
+  bootstrap@5.3.4:
+    resolution: {integrity: sha512-q2oK3ZPDTa5I44FTyY3H76+SDTJREvOBxtX1HNLHcxMni50jMvUtOh+dgFdgpsAHtJ9bfNAWr6d6VezJHJ/7tg==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.8
 
   busboy@1.6.0:
     resolution: {integrity: sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==}
@@ -194,9 +205,15 @@ snapshots:
   '@next/swc-win32-x64-msvc@13.5.9':
     optional: true
 
+  '@popperjs/core@2.11.8': {}
+
   '@swc/helpers@0.5.2':
     dependencies:
       tslib: 2.8.1
+
+  bootstrap@5.3.4(@popperjs/core@2.11.8):
+    dependencies:
+      '@popperjs/core': 2.11.8
 
   busboy@1.6.0:
     dependencies:
