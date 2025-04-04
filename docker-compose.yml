@@ -1,6 +1,15 @@
 version: '3.8'
 
 services:
+  api-gateway:
+    build:
+      context: ./APIGateway
+      dockerfile: Dockerfile
+    container_name: ticketing-api-gateway-container
+    ports:
+      - '8080:8080'
+    restart: always
+
   auth-service:
     build:
       context: ./auth
