@@ -2,13 +2,18 @@ import axios from "axios";
 import { useState } from "react";
 import { UserRequestType } from "../types/use-request.types";
 
-export default ({ url, method, body }: UserRequestType) => {
+export default ({ url, method, body, onSuccess }: UserRequestType) => {
   const [errors, setErrors] = useState<any>(null);
 
   const doRequest = async () => {
     try {
       setErrors(null);
       const respose = await axios[method](url, body);
+
+      if(onSuccess) {
+        onSuccess();
+      }
+
       return respose.data;
     } catch (err: any) {
       setErrors(

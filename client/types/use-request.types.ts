@@ -4,4 +4,5 @@ export interface UserRequestType {
   url: string;
   method: HttpMethod;
   body?: any;
+  onSuccess: () => 
 }

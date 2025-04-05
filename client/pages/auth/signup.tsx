@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Router from 'next/router';
+
 import useRequest from '../../hooks/use-request';
 import config from '../../config/configuration';
 
@@ -11,7 +13,8 @@ export default () => {
         body: {
             email,
             password,
-        }
+        },
+        onSuccess: () => Router.push('/')
     })
 
     const onSubmit = async (e: any) => {
