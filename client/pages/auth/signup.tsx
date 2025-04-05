@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import useRequest from '../../hooks/use-request';
+import config from '../../config/configuration';
 
 export default () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { doRequest, errors } = useRequest({
-        url: 'http://localhost:8080/api/users/signup',
+        url: `${config.backend_url}/api/users/signup`,
         method: 'post',
         body: {
             email,
             password,
         }
     })
-
-    useEffect(() => {
-        console.log('hello f');
-        console.log(process.env.BACKEND_URL);
-    }, []);
 
     const onSubmit = async (e: any) => {
         e.preventDefault();
