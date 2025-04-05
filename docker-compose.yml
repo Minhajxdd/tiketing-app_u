@@ -30,6 +30,9 @@ services:
     container_name: ticketing-client-container
     ports:
       - '3000:3000'
+    volumes:
+    - ./client:/app
+    - /app/node_modules 
     restart: always
 
   mongodb:
