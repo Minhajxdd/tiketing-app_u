@@ -3,14 +3,13 @@ import "express-async-errors";
 import cookieSession from "cookie-session";
 
 const app = express();
-app.set('trust proxy', true);
+app.set("trust proxy", true);
 
 import { currentUserRouter } from "./routes/current-user";
 import { singinRouter } from "./routes/signin";
 import { signupRouter } from "./routes/signup";
 import { signoutRouter } from "./routes/signout";
-import { errorHandler } from "./middlewares/error-handler";
-import { NotFoundError } from "./errors/not-found-error";
+import { errorHandler, NotFoundError } from "@tkgtickets/common";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,8 +18,7 @@ app.use(
     signed: false,
     // secure: process.env.NODE_ENV !== 'test',
     secure: false,
-    sameSite: 'lax'
-    
+    sameSite: "lax",
   })
 );
 
