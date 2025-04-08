@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import cookieSession from "cookie-session";
-import { errorHandler, NotFoundError } from "@tkgtickets/common";
+import { currentUser, errorHandler, NotFoundError } from "@tkgtickets/common";
 import { createTicketRouter } from "./routes/new";
 
 const app = express();
@@ -17,6 +17,8 @@ app.use(
     sameSite: "lax",
   })
 );
+
+app.use(currentUser);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(req.method, " ", req.url);
