@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import cookieSession from "cookie-session";
 import { errorHandler, NotFoundError } from "@tkgtickets/common";
+import { createTicketRouter } from "./routes/new";
 
 const app = express();
 app.set("trust proxy", true);
@@ -21,6 +22,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(req.method, " ", req.url);
   next();
 });
+
+app.use(createTicketRouter);
 
 app.all("*", () => {
   throw new NotFoundError();
