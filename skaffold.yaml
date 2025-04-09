@@ -9,6 +9,7 @@ deploy:
       - infra/k8s/client-depl.yaml
       - infra/k8s/tickets-depl.yaml
       - infra/k8s/tickets-monog-depl.yaml
+      - infra/k8s/nats-depl.yaml
 
 build:
   local:
