@@ -2,7 +2,7 @@ import mongoose, { mongo } from 'mongoose';
 
 
 interface TicketAttrs {
-    titls: string;
+    title: string;
     price: number;
     userId: string;
 }
@@ -19,7 +19,7 @@ interface TicketModel extends mongoose.Model<TicketDoc> {
 
 const ticketSchema = new mongoose.Schema({
     title:  {
-        type: String;
+        type: String,
         required: true
     },
     price: {
