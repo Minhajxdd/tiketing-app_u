@@ -10,6 +10,8 @@ deploy:
       - infra/k8s/tickets-depl.yaml
       - infra/k8s/tickets-monog-depl.yaml
       - infra/k8s/nats-depl.yaml
+      - infra/k8s/orders-depl.yaml
+      - infra/k8s/orders-mongo-depl.yaml
 
 build:
   local:
@@ -33,6 +35,14 @@ build:
             dest: .
     - image: minhajxdd/tickets
       context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: minhajxdd/orders
+      context: orders
       docker:
         dockerfile: Dockerfile
       sync:
