@@ -41,6 +41,9 @@ importers:
       mongoose:
         specifier: ^8.13.0
         version: 8.13.0
+      node-nats-streaming:
+        specifier: ^0.3.2
+        version: 0.3.2
       npm:
         specifier: ^11.2.0
         version: 11.2.0

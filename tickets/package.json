@@ -30,6 +30,7 @@
     "i": "^0.3.7",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.0",
+    "node-nats-streaming": "^0.3.2",
     "npm": "^11.2.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.8.2"
