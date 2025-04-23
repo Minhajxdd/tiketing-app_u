@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@tkgtickets/common':
-        specifier: ^1.0.9
-        version: 1.0.9
+        specifier: ^1.0.10
+        version: 1.0.10
       '@types/cookie-session':
         specifier: ^2.0.49
         version: 2.0.49
@@ -351,8 +351,8 @@ packages:
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
 
-  '@tkgtickets/common@1.0.9':
-    resolution: {integrity: sha512-qAeMIacqiq/BmJ7i1h1zidqkubZYSSwvi9TDV7W+uX1o+qoSP0ki7Di5U9M70+22MbbsUiEIOaQZgnlvvanD8g==}
+  '@tkgtickets/common@1.0.10':
+    resolution: {integrity: sha512-IQrAjXV5UZzDNjtByr1pr7LmceuLfrPcTcTJuh1bDFzfbLgd3MLvBgckeaJ8ug71VTCZWdI32gJq7fp2GOEiaQ==}
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -2564,7 +2564,7 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@tkgtickets/common@1.0.9':
+  '@tkgtickets/common@1.0.10':
     dependencies:
       '@types/cookie-session': 2.0.49
       '@types/express': 5.0.1
