@@ -19,7 +19,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.3",
   "dependencies": {
-    "@tkgtickets/common": "^1.0.7",
+    "@tkgtickets/common": "^1.0.11",
     "@types/cookie-session": "^2.0.49",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
