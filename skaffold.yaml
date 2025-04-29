@@ -12,6 +12,8 @@ deploy:
       - infra/k8s/nats-depl.yaml
       - infra/k8s/orders-depl.yaml
       - infra/k8s/orders-mongo-depl.yaml
+      - infra/k8s/expiration-depl.yaml
+      - infra/k8s/expiration-redis-depl.yaml
 
 build:
   local:
@@ -43,6 +45,14 @@ build:
             dest: .
     - image: minhajxdd/orders
       context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: minhajxdd/expiration
+      context: expiration
       docker:
         dockerfile: Dockerfile
       sync:
