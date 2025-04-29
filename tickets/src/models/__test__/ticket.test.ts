@@ -12,7 +12,6 @@ it("implements optimistic concurrency control", async () => {
   const firstInstance = await Ticket.findById(ticket.id);
   const secondInstance = await Ticket.findById(ticket.id);
 
-  console.log(firstInstance);
   firstInstance!.set({ price: 10 });
   secondInstance!.set({ price: 15 });
 
