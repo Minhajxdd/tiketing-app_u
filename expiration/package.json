@@ -19,7 +19,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.3",
   "dependencies": {
-    "@tkgtickets/common": "^1.0.12",
+    "@tkgtickets/common": "^1.0.13",
     "@types/bull": "^4.10.4",
     "bull": "^4.16.5",
     "node-nats-streaming": "^0.3.2",
