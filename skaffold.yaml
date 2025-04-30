@@ -14,6 +14,8 @@ deploy:
       - infra/k8s/orders-mongo-depl.yaml
       - infra/k8s/expiration-depl.yaml
       - infra/k8s/expiration-redis-depl.yaml
+      - infra/k8s/payments-depl.yaml
+      - infra/k8s/payments-mongo-depl.yaml
 
 build:
   local:
@@ -53,6 +55,14 @@ build:
             dest: .
     - image: minhajxdd/expiration
       context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: minhajxdd/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:
