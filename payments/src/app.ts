@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import cookieSession from "cookie-session";
 import { currentUser, errorHandler, NotFoundError } from "@tkgtickets/common";
+import { createChargeRouter } from "./routes/new";
 
 const app = express();
 app.set("trust proxy", true);
@@ -18,6 +19,8 @@ app.use(
 );
 
 app.use(currentUser);
+
+app.use(createChargeRouter);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(req.method, " ", req.url);
