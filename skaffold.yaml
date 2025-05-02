@@ -35,6 +35,8 @@ build:
         manual:
           - src: '**/*.tsx'
             dest: .
+          - src: '**/*.js'
+            dest: .
     - image: minhajxdd/tickets
       context: tickets
       docker:
