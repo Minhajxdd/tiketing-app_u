@@ -41,5 +41,5 @@ Thumbs.db
 docker-compose.override.yml
 docker-compose.override.yaml
 
-#next
+# Next
 .next

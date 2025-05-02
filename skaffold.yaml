@@ -7,6 +7,13 @@ deploy:
       - infra/k8s/ingress-srv.yaml
       - infra/k8s/auth-mongo-depl.yaml
       - infra/k8s/client-depl.yaml
+      - infra/k8s/tickets-depl.yaml
+      - infra/k8s/tickets-monog-depl.yaml
+      - infra/k8s/nats-depl.yaml
+      - infra/k8s/orders-depl.yaml
+      - infra/k8s/orders-mongo-depl.yaml
+      - infra/k8s/expiration-depl.yaml
+      - infra/k8s/expiration-redis-depl.yaml
 
 build:
   local:
@@ -27,4 +34,28 @@ build:
       sync:
         manual:
           - src: '**/*.tsx'
+            dest: .
+    - image: minhajxdd/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: minhajxdd/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: minhajxdd/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
             dest: .
